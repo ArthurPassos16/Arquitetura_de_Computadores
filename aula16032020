@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define bloco 32
+
+int main(void) {
+  char *p=NULL, *q=NULL;
+  
+  for(int i=1;i>0;i++){
+    q=p;
+    p=(void *)realloc(p,i*bloco);
+    if(p!=q)
+      printf("Bloco %d: %dmb p:%d q:%d\n",i,(i*500)/1024,p,q);
+  }
+  free(q);
+  free(p);
+  return 0;
+}
